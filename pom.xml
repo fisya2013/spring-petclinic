@@ -28,6 +28,8 @@
     <wro4j.version>1.8.0</wro4j.version>
 
     <cobertura.version>2.7</cobertura.version>
+    <findbugs.version>3.0.5</cobertura.version>
+    <pmd.version>3.9.0</cobertura.version>
 
   </properties>
 
@@ -215,6 +217,22 @@
           <check />
         </configuration>
       </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${pmd.version}</version>
+          <configuration>
+            <linkXref>true</linkXref>
+            <targetJdk>1.8</targetJdk>
+          </configuration>
+        </plugin>
+
+        <!-- checks the compiled bytecode for any issues -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>${findbug.version}</version>
+        </plugin>
     </plugins>
   </reporting>
 
